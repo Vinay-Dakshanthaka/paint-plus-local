@@ -1,0 +1,331 @@
+@font-face {
+    font-family: 'gIcons';
+    src: url('../../fonts/gicons/giconsd41d.eot?#iefix&v=4.7.0') format('embedded-opentype'),
+        url('../../fonts/gicons/gicons3e6e.woff2?v=4.7.0') format('woff2'),
+        url('../../fonts/gicons/gicons3e6e.woff?v=4.7.0') format('woff'),
+        url('../../fonts/gicons/gicons3e6e.ttf?v=4.7.0') format('truetype'),
+        url('../../fonts/gicons/gicons3e6e.svg?v=4.7.0#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "uicons-brands";
+    src: url("../../fonts/gicons/uicons-brands.eot#iefix") format("embedded-opentype"),
+        url("../../fonts/gicons/uicons-brands.woff2") format("woff2"),
+        url("../../fonts/gicons/uicons-brands.woff") format("woff");
+}
+
+.notify {
+    padding: 10px 10px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #4b5966;
+    border-bottom: 5px solid #D9A947;
+    border-radius: 5px;
+    display: block;
+    -webkit-box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.07);
+    box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.07);
+}
+
+.notify p {
+    padding: 5px;
+}
+
+.card {
+    font-family: "Manrope", sans-serif;
+
+    margin-bottom: 30px;
+    border: 0;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    letter-spacing: .5px;
+    border-radius: 8px;
+    -webkit-box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, .05);
+    box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, .05);
+}
+
+.card .card-header {
+    background-color: #fff;
+    border-bottom: none;
+    padding: 24px;
+    border-bottom: 1px solid #f6f7fb;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+
+
+
+.card .card-body {
+    width: 100%;
+    padding: 30px;
+    background-color: transparent;
+}
+
+.btn-primary,
+.btn-primary.disabled,
+.btn-primary:disabled {
+    background-color: #D9A947 !important;
+    border-color: #D9A947 !important;
+    font-family: "Manrope", sans-serif;
+}
+
+.product-image {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.filter-cards span:nth-child(1):nth-last-child(2),
+.filter-cards span:nth-child(2):nth-last-child(1) {
+    display: none;
+}
+
+ul,
+ol {
+    padding: 0 !important;
+}
+
+/* Add this to your CSS file */
+.remove-button {
+    background-color: #dc3545;
+    /* Red background color */
+    color: #fff;
+    /* White text color */
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    /* backdrop-filter: blur(0px); */
+    /* opacity: 0; */
+    /* transition: all 1s; */
+}
+
+.show-loader {
+    /* animation-delay: 1s; */
+    animation: show 0.5s linear forwards;
+}
+
+.hide-loader {
+    /* animation-delay: 1s; */
+    animation: hide 0.5s linear forwards;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+
+    to {
+        opacity: 1;
+        backdrop-filter: blur(3px);
+    }
+
+}
+
+@keyframes hide {
+    from {
+
+        opacity: 1;
+        backdrop-filter: blur(3px);
+    }
+
+    to {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+
+}
+
+.custom-loader {
+    position: fixed;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.bar {
+    display: inline-block;
+    width: 3px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    animation: scale-up4 1s linear infinite;
+}
+
+.bar:nth-child(2) {
+    height: 35px;
+    margin: 0 5px;
+    animation-delay: .25s;
+}
+
+.bar:nth-child(3) {
+    animation-delay: .5s;
+}
+
+@keyframes scale-up4 {
+    20% {
+        background-color: #767676;
+        transform: scaleY(1.5);
+    }
+
+    40% {
+        transform: scaleY(1);
+    }
+}
+
+.address-not-selected {
+    display: none;
+}
+
+.shipping-address .address-not-selected:only-child {
+    display: block;
+}
+
+
+.dev-transition {
+    transition: all 1s linear;
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+.opacity-1 {
+    opacity: 1;
+}
+
+.scale-0 {
+    scale: 0;
+}
+
+.scale-1 {
+    scale: 1;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.text-black {
+    color: black !important;
+}
+
+.text-manrope {
+    font-family: "Manrope", sans-serif !important;
+}
+
+.delete-btn {
+    background-color: #e63946;
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}
+
+.order-id {
+    color: #9d9595;
+}
+
+.dev-transition-order-complete {
+    transition: all 0.6s cubic-bezier(0.97, -0.1, 0.88, 0.47);
+}
+
+.scale-2 {
+    scale: 3;
+}
+
+.show-order-complete-animation {
+    display: block !important;
+    animation-delay: 0.3s;
+    animation: showOrder 0.7s cubic-bezier(0.97, -0.1, 0.88, 0.47) forwards;
+}
+
+@keyframes showOrder {
+    from {
+        opacity: 0;
+        scale: 0;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.color-palette {
+    display: block;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.show-video-preview {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 400px));
+    /* grid-template-rows: repeat(1, 300px); */
+    gap: 0 60px;
+}
+
+.grid-1,
+.grid-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    aspect-ratio: 16 / 10;
+    padding: 10px;
+}
+
+.grid-1 {
+    background-color: #52dfd66a;
+}
+
+.grid-2 {
+    background-color: #ada7a791;
+}
+
+.logo{
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    transition: all 0.4s ease;
+    margin-bottom: 10px;
+}
+
+
+.logo-footer{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    transition: all 0.4s ease;
+    margin-bottom: 10px;
+}
+
+.logo:hover,
+.logo-footer:hover{
+    transform: scale(1.2);
+}
+
+.translateY-35{
+    transform: translateY(35%);
+}

@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>Paint Plus</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="Multipurpose eCommerce HTML Template">
+    <meta name="author" content="Aireddy DineshReddy">
+    <!-- site Favicon -->
+    <link rel="icon" href="assets/img/favicon/logo.png" sizes="32x32">
+
+    <!-- css Icon Font -->
+    <link rel="stylesheet" href="assets/css/vendor/gicons.css">
+
+    <!-- css All Plugins Files -->
+    <link rel="stylesheet" href="assets/css/plugins/animate.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/slick.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/nouislider.css">
+
+    <!-- Main Style -->
+    <link rel="stylesheet" id="main_style" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/vendor/custom.css">
+
+    <!-- Add your custom CSS styles here -->
+    <style>
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .user-details {
+            text-align: center;
+        }
+
+        .change-password-btn {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .impressive-hr {
+            border-top: 4px solid #007BFF;
+            margin: 20px 0;
+        }
+
+        .gradient-custom {
+            /* fallback for old browsers */
+            background: #f6d365;
+
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: -webkit-linear-gradient(to right bottom,
+                    rgba(246, 211, 101, 1),
+                    rgba(253, 160, 133, 1));
+
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to right bottom,
+                    rgba(246, 211, 101, 1),
+                    rgba(253, 160, 133, 1));
+        }
+
+        /* #edit-profile {
+            transition: all 0.5s linear;
+        } */
+
+        /* #edit-profile:hover {
+            transform: scale(1.2);
+        } */
+
+        #newPassword,
+        #confirmNewPassword {
+            -webkit-user-select: none;
+            /* Safari */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Edge */
+            user-select: none;
+        }
+
+        #newPassword,
+        #confirmNewPassword::content {
+            pointer-events: none;
+        }
+
+        .change-password-btn {
+            background: linear-gradient(rgb(216, 216, 27, 0.8),
+                    rgb(248, 213, 38, 0.8));
+            color: black;
+            border: none;
+            transition: all 0.5s ease;
+        }
+
+        .change-password-btn:hover {
+            box-shadow: 1px 2px 2px 1px rgb(50, 49, 49, 0.2),
+                -1px 0 2px 0 rgb(50, 49, 49, 0.2);
+            background: linear-gradient(rgb(216, 216, 27, 0.8),
+                    rgb(248, 213, 38, 0.8));
+            color: black;
+            border: none;
+            transform: translateY(-2px);
+        }
+
+        #phoneError {
+            transform: scale(0);
+            transition: all 0.5s ease;
+            scale: 0;
+            transform: translateY(-100px);
+            transform-origin: left;
+        }
+
+        #shown-cart {
+            top: -5px;
+            left: 15px;
+        }
+
+        footer {
+            background: linear-gradient(0deg, #36dadc 0%, #64bcf3 100%);
+        }
+
+        #profilePicture {
+            display: none
+        }
+
+        #profile-custom-button {
+            background-color: #B56917;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .user-profile .card .card-header {
+            font-family: "Manrope", sans-serif;
+            font-weight: 500;
+        }
+
+        .user-profile .card-header:first-child {
+            border-radius: 0.35rem 0.35rem 0 0;
+        }
+
+        .user-profile .card-header {
+            padding: 1rem 1.35rem;
+            margin-bottom: 0;
+            background-color: rgba(33, 40, 50, 0.03);
+            border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+        }
+
+        /* User-profile-details */
+
+        .fonttext {
+            font-family: "Poppins, sans-serif";
+
+        }
+
+        .user-profile .card {
+            box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+
+        }
+
+        .user-profile .card .card-header {
+            font-family: "Poppins, sans-serif";
+            font-weight: 500;
+        }
+
+        .user-profile .card-header:first-child {
+            border-radius: 0.35rem 0.35rem 0 0;
+        }
+
+        .user-profile .card-header {
+            padding: 1rem 1.35rem;
+            margin-bottom: 0;
+            background-color: rgba(44, 101, 182, 0.03);
+            border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+        }
+
+        .user-profile .form-control,
+        .dataTable-input {
+            display: block;
+            width: 100%;
+            padding: 0.875rem 1.125rem;
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1;
+            color: #69707a;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #c5ccd6;
+            /* -webkit-appearance: none; */
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0.35rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        input[type="password"]::-ms-reveal {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loader -->
+    <div id="gi-overlay">
+        <div class="loader"></div>
+    </div>
+
+    <div id="main" class=" position-relative">
+        <!-- Header start  -->
+        <header class="gi-header">
+            <!-- Header Top Start -->
+            <div class="header-top">
+                <div class="container">
+                    <div class="row align-itegi-center">
+                        <!-- Header Top social Start -->
+                        <div class="col text-left header-top-left d-lg-block">
+                            <div class="header-top-social">
+                                <ul class="mb-0">
+                                    <li class="list-inline-item">
+                                        <a href="javascript:void(0)"><i class="fi fi-rr-phone-call"></i></a>+91 987 654
+                                        3210
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript:void(0)"><i class="fi fi-brands-whatsapp"></i></a>+91 987
+                                        654
+                                        3210
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Header Top social End -->
+                        <!-- Header Top Message Start -->
+                        <div class="col text-center header-top-center">
+                            <div class="header-top-message">
+                                World's Fastest Online Shopping Destination
+                            </div>
+                        </div>
+                        <!-- Header Top Message End -->
+                        <!-- Header Top Language Currency -->
+                        <div class="col header-top-right d-none d-lg-block">
+                            <div class="header-top-right-inner d-flex justify-content-end">
+                                <a class="gi-help" href="faq.html">Help?</a>
+                                <a class="gi-help" href="track-order.html">Track Order?</a>
+                                <!-- Language Start -->
+                                <!-- <div class="header-top-lan-curr header-top-lan dropdown">
+                                    <button class="dropdown-toggle" data-bs-toggle="dropdown">English
+                                        <i class="fi-rr-angle-small-down" aria-hidden="true"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="active"><a class="dropdown-item" href="#">English</a></li>
+                                        <li><a class="dropdown-item" href="#">Italiano</a></li>
+                                    </ul>
+                                </div> -->
+                                <!-- Language End -->
+                                <!-- Currency Start -->
+                                <!-- <div class="header-top-lan-curr header-top-curr dropdown">
+                                    <button class="dropdown-toggle" data-bs-toggle="dropdown">Dollar
+                                        <i class="fi-rr-angle-small-down" aria-hidden="true"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li class="active"><a class="dropdown-item" href="#">USD $</a></li>
+                                        <li><a class="dropdown-item" href="#">EUR €</a></li>
+                                    </ul>
+                                </div> -->
+                                <!-- Currency End -->
+                            </div>
+                        </div>
+                        <!-- Header Top Language Currency -->
+                        <!-- Header Top responsive Action -->
+                        <div class="col header-top-res d-lg-none">
+                            <div class="gi-header-bottons">
+                                <div class="right-icons">
+                                    <!-- Header User Start -->
+                                    <!-- <a href="login.html" class="gi-header-btn gi-header-user">
+                                        <div class="header-icon"><i class="fi-rr-user"></i></div>
+                                    </a> -->
+                                    <!-- Header User End -->
+                                    <!-- Header Wishlist Start -->
+                                    <!-- <a href="wishlist.html" class="gi-header-btn gi-wish-toggle">
+                                        <div class="header-icon"><i class="fi-rr-heart"></i></div>
+                                        <span class="gi-header-count gi-wishlist-count">3</span>
+                                    </a> -->
+                                    <!-- Header Wishlist End -->
+                                    <!-- Header Cart Start -->
+                                    <a href="cart.html" class="gi-header-btn gi-cart-toggle">
+                                        <div class="header-icon"><i class="fi-rr-shopping-bag"></i>
+                                            <span class="main-label-note-new"></span>
+                                        </div>
+                                        <span class="gi-header-count gi-cart-count  cart">3</span>
+                                    </a>
+                                    <!-- Header Cart End -->
+                                    <!-- Header menu Start -->
+                                    <a href="javascript:void(0)" class="gi-header-btn gi-site-menu-icon d-lg-none">
+                                        <i class="fi-rr-menu-burger"></i>
+                                    </a>
+                                    <!-- Header menu End -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Header Top responsive Action -->
+                    </div>
+                </div>
+            </div>
+            <!-- Header Top  End -->
+
+            <!-- Header Bottom  Start -->
+            <div class="gi-header-bottom d-lg-block">
+                <div class="container position-relative">
+                    <div class="row">
+                        <div class="gi-flex">
+                            <!-- Header Logo Start -->
+                            <div class="align-self-center gi-header-logo">
+                                <div class="header-logo">
+                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt="Site Logo" class="logo"></a>
+                                </div>
+                            </div>
+                            <!-- Header Logo End -->
+                            <!-- Header Search Start -->
+                            <!-- <div class="align-self-center gi-header-search">
+                                <div class="header-search">
+                                    <form class="gi-search-group-form" action="#">
+                                        <input class="form-control gi-search-bar" placeholder="Search Products..."
+                                            type="text">
+                                        <button class="search_submit" type="submit"><i
+                                                class="fi-rr-search"></i></button>
+                                    </form>
+                                </div>
+                            </div> -->
+                            <!-- Header Search End -->
+                            <!-- Header Button Start -->
+                            <div class="gi-header-action align-self-center">
+                                <div class="gi-header-bottons">
+                                    <!-- Header User Start -->
+                                    <div class="gi-acc-drop">
+                                        <a href="javascript:void(0)"
+                                            class="gi-header-btn gi-header-user dropdown-toggle gi-user-toggle"
+                                            title="Account">
+                                            <!-- <div class="header-icon">
+                                                <i class="fi-rr-user"></i>
+                                            </div> -->
+                                            <div class="header-icon loggedOut">
+                                                <i class="fi-rr-user"></i>&nbsp;&nbsp;
+                                                <span class="nav-link custom-brand active">Login/Register</span>
+                                            </div>
+                                            <div class="gi-btn-desc">
+                                                <!-- <span class="gi-btn-title">Account</span> -->
+                                                <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                                    <span class="header-icon">
+                                                        <span class="">
+                                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                                                alt="profile" id="profile-picture"
+                                                                class="rounded-circle"
+                                                                style="height: 30px; width: 30px;">
+                                                        </span>&nbsp;
+                                                        <span class="badge text-bg-warning profile-name mt-1 h-100">
+                                                        </span>
+                                                    </span>
+                                                </li>
+                                                <!-- <li class="nav-item d-none loggedIn" id="agentAppbar">
+                                                    <span class="header-icon">
+                                                        <span class="">
+                                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp" alt="profile" id="profile-picture" class="rounded-circle" style="height: 30px; width: 30px;">
+                                                        </span>&nbsp;
+                                                        <span class="badge text-bg-warning profile-name mt-1 h-100">
+                                                        </span>
+                                                    </span>
+                                                </li> -->
+                                                <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                                    <span class="header-icon">
+                                                        <span class="">
+                                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                                                alt="profile" id="profile-picture"
+                                                                class="rounded-circle"
+                                                                style="height: 30px; width: 30px;">
+                                                        </span>&nbsp;
+                                                        <span class="badge text-bg-warning profile-name mt-1 h-100">
+                                                        </span>
+                                                    </span>
+                                                </li>
+                                            </div>
+                                        </a>
+                                        <ul class="gi-dropdown-menu">
+                                            <li class="nav-item loggedOut">
+                                                <a class="nav-link custom-brand" href="register.html">Register</a>
+                                            </li>
+                                            <li class="nav-item loggedOut">
+                                                <a class="nav-link custom-brand active" href="login.html">Login</a>
+                                            </li>
+                                            <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                                <a class="nav-link custom-brand active" aria-current="page"
+                                                    href="user.html">Profile</a>
+                                            </li>
+                                            <!-- <li class="nav-item d-none loggedIn" id="agentAppbar">
+                                                <a class="nav-link custom-brand" href="agent.html">Profile
+                                                </a>
+                                            </li> -->
+                                            <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                                <a class="nav-link custom-brand" href="admin.html">Profile
+                                                </a>
+                                            </li>
+                                            <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                                <a class="nav-link custom-brand" href="product-upload.html">Upload
+                                                    Product
+                                                </a>
+                                            </li>
+                                            <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                                <a class="nav-link custom-brand" href="orderlist.html">My Orders
+                                                </a>
+                                            </li>
+                                            <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                                <a class="nav-link custom-brand" href="upload-video.html">Upload Video
+                                                </a>
+                                            </li>
+                                            <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                                <a class="nav-link custom-brand active" aria-current="page"
+                                                    href="addresses.html">Addresses</a>
+                                            </li>
+                                            <!-- <li class="nav-item d-none loggedIn" id="agentAppbar">
+                                                <a class="nav-link custom-brand" href="agent_dashboard.html">Agent Dashboard                                            </a>
+                                            </li> -->
+                                            <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                                <a class="nav-link custom-brand" href="admin_dashboard.html">Admin
+                                                    Dashboard
+                                                </a>
+                                            </li>
+                                            <li class="nav-item logout-btn d-none">
+                                                <!-- Logout button with data-toggle and data-target attributes -->
+                                                <a class="nav-link custom-brand " data-bs-toggle="modal" type="button"
+                                                    data-bs-target="#logoutConfirmationModal">
+                                                    Logout
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- Header User End -->
+                                    <!-- Header wishlist Start -->
+                                    <!-- <a href="wishlist.html" class="gi-header-btn gi-wish-toggle" title="Wishlist">
+                                        <div class="header-icon">
+                                            <i class="fi-rr-heart"></i>
+                                        </div>
+                                        <div class="gi-btn-desc">
+                                            <span class="gi-btn-title">Wishlist</span>
+                                            <span class="gi-btn-stitle"><b class="gi-wishlist-count">3</b>-items</span>
+                                        </div>
+                                    </a> -->
+                                    <!-- Header wishlist End -->
+                                    <!-- Header Cart Start -->
+                                    <a href="cart.html" class="gi-header-btn gi-cart-toggle" title="Cart">
+                                        <div class="header-icon">
+                                            <i class="fi-rr-shopping-bag"></i>
+                                            <span class="main-label-note-new"></span>
+                                        </div>
+                                        <div class="gi-btn-desc">
+                                            <span class="gi-btn-title">Cart</span>
+                                            <span class="gi-btn-stitle"><b class="gi-cart-count cart">3</b>-items</span>
+                                        </div>
+                                    </a>
+                                    <!-- Header Cart End -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header Button End -->
+
+            <!-- Header menu -->
+            <div class="gi-header-cat d-none d-lg-block">
+                <div class="container position-relative">
+                    <div class="gi-nav-bar">
+                        <!-- Category Toggle -->
+                        <div class="gi-category-icon-block">
+                            <!-- <div class="gi-category-menu">
+                                <div class="gi-category-toggle">
+                                    <i class="fi fi-rr-apps"></i>
+                                    <span class="text">All Categories</span>
+                                    <i class="fi-rr-angle-small-down d-1199 gi-angle" aria-hidden="true"></i>
+                                </div>
+                            </div> -->
+                            <div class="gi-cat-dropdown">
+                                <div class="gi-cat-block">
+                                    <div class="gi-cat-tab d-flex flex-wrap justify-content-between ps-2 gap-2                         
+                                nav-category">
+                                        <!-- <div class="gi-tab-list nav flex-column nav-pills me-3" id="v-pills-tab"
+                                            role="tablist" aria-orientation="vertical">
+                                            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
+                                                data-bs-target="#v-pills-home" type="button" role="tab"
+                                                aria-controls="v-pills-home" aria-selected="true">Wall Paints</button>
+                                            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                                data-bs-target="#v-pills-profile" type="button" role="tab"
+                                                aria-controls="v-pills-profile" aria-selected="false">Floor
+                                                Paints</button>
+                                            <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
+                                                data-bs-target="#v-pills-messages" type="button" role="tab"
+                                                aria-controls="v-pills-messages" aria-selected="false"></i>Wood
+                                                Protection</button>
+                                            <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
+                                                data-bs-target="#v-pills-settings" type="button" role="tab"
+                                                aria-controls="v-pills-settings" aria-selected="false"></i>Epoxy
+                                            </button>
+                                        </div>
+                                        <div class="tab-content" id="v-pills-tabContent">
+                                            <div class="gi-tab-list nav flex-column nav-pills me-3" id="v-pills-tab"
+                                                role="tablist" aria-orientation="vertical">
+                                                <button class="nav-link active" id="v-pills-home-tab"
+                                                    data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button"
+                                                    role="tab" aria-controls="v-pills-home" aria-selected="true">Wall
+                                                    Paints</button>
+                                                <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                                    data-bs-target="#v-pills-profile" type="button" role="tab"
+                                                    aria-controls="v-pills-profile" aria-selected="false">Floor
+                                                    Paints</button>
+                                                <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
+                                                    data-bs-target="#v-pills-messages" type="button" role="tab"
+                                                    aria-controls="v-pills-messages" aria-selected="false"></i>Wood
+                                                    Protection</button>
+                                                <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
+                                                    data-bs-target="#v-pills-settings" type="button" role="tab"
+                                                    aria-controls="v-pills-settings" aria-selected="false"></i>Epoxy
+                                                </button>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main Menu Start -->
+                        <div id="gi-main-menu-desk" class="d-none d-lg-block sticky-nav">
+                            <div class="nav-desk">
+                                <div class="row">
+                                    <div class="col-md-12 align-self-center">
+                                        <div class="gi-main-menu">
+                                            <ul>
+                                                <li class="non-drop">
+                                                    <a href="index.html">Home</a>
+                                                </li>
+                                                </li>
+                                                <li class="non-drop">
+                                                    <a href="products.html">Products</a>
+                                                </li>
+                                                <li class="dropdown drop-list">
+                                                    <a href="javascript:void(0)" class="dropdown-arrow">Others<i
+                                                            class="fi-rr-angle-small-right"></i></a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="about-us.html">About Us</a></li>
+                                                        <li><a href="contact-us.html">Contact Us</a></li>
+                                                        <li><a href="cart.html">Cart</a></li>
+                                                        <!-- <li><a href="checkout.html">Checkout</a></li> -->
+                                                        <li><a href="faq.html">FAQ</a></li>
+                                                        <!-- <li><a href="login.html">Login</a></li>
+                                                        <li><a href="register.html">Register</a></li> -->
+                                                        <li><a href="track-order.html">Track Order</a></li>
+                                                        <li><a href="terms-condition.html">Terms Condition</a></li>
+                                                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                                    </ul>
+                                                </li>
+                                                <!-- <li class="non-drop"><a href="shop-banner-left-sidebar-col-3.html">
+                                                        <i class="fi-rr-badge-percent"></i>Offers</a>
+                                                </li> -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Main Menu End -->
+
+                        <!-- <div class="gi-location-block">
+                            <div class="gi-location-menu">
+                                <div class="gi-location-toggle">
+                                    <i class="fi fi-rr-marker location"></i>
+                                    <span class="gi-location-title d-1199 gi-location">New York</span>
+                                    <i class="fi-rr-angle-small-down d-1199 gi-angle" aria-hidden="true"></i>
+                                </div>
+                                <div class="gi-location-content">
+                                    <div class="gi-location-dropdown">
+                                        <div class="row gi-location-wrapper">
+                                            <ul class="loc-grid">
+                                                <li class="loc-list current">
+                                                    <i class="fi fi-rr-map-marker-plus"></i>
+                                                    <span class="gi-detail-current">current Location</span>
+                                                </li>
+                                                <li class="loc-list">
+                                                    <i class="fi fi-rr-map-marker-plus"></i>
+                                                    <span class="gi-detail">Los Angeles</span>
+                                                </li>
+                                                <li class="loc-list">
+                                                    <i class="fi fi-rr-map-marker-plus"></i>
+                                                    <span class="gi-detail">Chicago</span>
+                                                </li>
+                                                <li class="loc-list">
+                                                    <i class="fi fi-rr-map-marker-plus"></i>
+                                                    <span class="gi-detail">Houston</span>
+                                                </li>
+                                                <li class="loc-list">
+                                                    <i class="fi fi-rr-map-marker-plus"></i>
+                                                    <span class="gi-detail">Phoenix</span>
+                                                </li>
+                                                <li class="loc-list">
+                                                    <i class="fi fi-rr-map-marker-plus"></i>
+                                                    <span class="gi-detail">San Diego</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- Header menu End -->
+
+            <!-- Mobile Menu sidebar Start -->
+            <div class="gi-mobile-menu-overlay"></div>
+            <div id="gi-mobile-menu" class="gi-mobile-menu">
+                <div class="gi-menu-title">
+                    <span class="menu_title">My Menu</span>
+                    <button class="gi-close-menu">×</button>
+                </div>
+                <div class="gi-menu-inner">
+                    <div class="gi-menu-content">
+                        <ul>
+                            <li class="non-drop">
+                                <a href="index.html">Home</a>
+                            </li>
+
+                            <!-- <li><a href="javascript:void(0)">Categories</a>
+                                <ul class="sub-menu mobile-nav-category">
+                                    <li>
+                                        <a href="javascript:void(0)">Interior</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">Exterior</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">Wall Paints</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">Floor Paints</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li> -->
+                            <li class="non-drop">
+                                <a href="products.html">Products</a>
+                            </li>
+                            <li><a href="javascript:void(0)">Others</a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item loggedOut">
+                                        <a class="nav-link custom-brand" href="register.html">Register</a>
+                                    </li>
+                                    <li class="nav-item loggedOut">
+                                        <a class="nav-link custom-brand active" href="login.html">Login</a>
+                                    </li>
+                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li><a href="contact-us.html">Contact Us</a></li>
+                                    <li><a href="cart.html">Cart</a></li>
+                                    <!-- <li><a href="checkout.html">Checkout</a></li> -->
+                                    <li><a href="faq.html">FAQ</a></li>
+                                    <!-- <li><a href="login.html">Login</a></li>
+                                    <li><a href="register.html">Register</a></li> -->
+                                    <li><a href="track-order.html">Track Order</a></li>
+                                    <li><a href="terms-condition.html">Terms Condition</a></li>
+                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                    <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                        <a class="nav-link custom-brand" aria-current="page"
+                                            href="user.html">Profile</a>
+                                    </li>
+                                    <!-- <li class="nav-item d-none loggedIn" id="agentAppbar">
+                                                                                                        <a class="nav-link custom-brand" href="agent.html">Profile
+                                                                                                        </a>
+                                                                                                    </li> -->
+                                    <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                        <a class="nav-link custom-brand" href="admin.html">Profile
+                                        </a>
+                                    </li>
+                                    <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                        <a class="nav-link custom-brand" href="product-upload.html">Upload Product
+                                        </a>
+                                    </li>
+                                    <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                        <a class="nav-link custom-brand" href="upload-video.html">Upload Video
+                                        </a>
+                                    </li>
+                                    <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                        <a class="nav-link custom-brand" href="orderlist.html">My Orders
+                                        </a>
+                                    </li>
+                                    <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                        <a class="nav-link custom-brand" aria-current="page"
+                                            href="addresses.html">Addresses</a>
+                                    </li>
+                                    <!-- <li class="nav-item d-none loggedIn" id="agentAppbar">
+                                                                                                        <a class="nav-link custom-brand" href="agent_dashboard.html">Agent Dashboard
+                                                                                                        </a>
+                                                                                                    </li> -->
+                                    <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                        <a class="nav-link custom-brand" href="admin_dashboard.html">Admin Dashboard
+                                        </a>
+                                    </li>
+                                    <li class="nav-item logout-btn d-none">
+                                        <!-- Logout button with data-toggle and data-target attributes -->
+                                        <a class="nav-link custom-brand" data-bs-toggle="modal" type="button"
+                                            data-bs-target="#logoutConfirmationModal">
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header-res-lan-curr">
+                        <!-- Social Start -->
+                        <div class="header-res-social">
+                            <div class="header-top-social">
+                                <ul class="mb-0">
+                                    <li class="list-inline-item"><a href="#"><i class="gicon gi-facebook"></i></a></li>
+                                    <li class="list-inline-item"><a href="#"><i class="gicon gi-twitter"></i></a></li>
+                                    <li class="list-inline-item"><a href="#"><i class="gicon gi-instagram"></i></a></li>
+                                    <li class="list-inline-item"><a href="#"><i class="gicon gi-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Social End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu sidebar End -->
+        </header>
+        <!-- Header End -->
+
+        <!-- Cart sidebar Start -->
+        <div class="gi-side-cart-overlay"></div>
+        <div id="gi-side-cart" class="gi-side-cart">
+            <div class="gi-cart-inner">
+                <div class="gi-cart-top">
+                    <div class="gi-cart-title">
+                        <span class="cart_title">My Cart</span>
+                        <a href="javascript:void(0)" class="gi-cart-close">
+                            <i class="fi-rr-cross-small"></i>
+                        </a>
+                    </div>
+                    <ul class="gi-cart-pro-items">
+                        <li>
+                            <a href="products.html" class="gi-pro-img"><img
+                                    src="assets/img/product-images/interior_paint6.jpg" alt="product"></a>
+                            <div class="gi-pro-content">
+                                <a href="products.html" class="cart-pro-title">Wall Paint</a>
+                                <span class="cart-price"><span>$25.00</span> x 1 ltr</span>
+                                <div class="qty-plus-minus">
+                                    <input class="qty-input" type="text" name="gi-qtybtn" value="1">
+                                </div>
+                                <a href="javascript:void(0)" class="remove">×</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="products.html" class="gi-pro-img"><img
+                                    src="assets/img/product-images/interior_paint6.jpg" alt="product"></a>
+                            <div class="gi-pro-content">
+                                <a href="products.html" class="cart-pro-title">Wall Paint</a>
+                                <span class="cart-price"><span>$25.00</span> x 1 ltr</span>
+                                <div class="qty-plus-minus">
+                                    <input class="qty-input" type="text" name="gi-qtybtn" value="1">
+                                </div>
+                                <a href="javascript:void(0)" class="remove">×</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="products.html" class="gi-pro-img"><img
+                                    src="assets/img/product-images/interior_paint6.jpg" alt="product"></a>
+                            <div class="gi-pro-content">
+                                <a href="products.html" class="cart-pro-title">Wall Paint</a>
+                                <span class="cart-price"><span>$25.00</span> x 1 ltr</span>
+                                <div class="qty-plus-minus">
+                                    <input class="qty-input" type="text" name="gi-qtybtn" value="1">
+                                </div>
+                                <a href="javascript:void(0)" class="remove">×</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="gi-cart-bottom">
+                    <div class="cart-sub-total">
+                        <table class="table cart-table">
+                            <tbody>
+                                <tr>
+                                    <td class="text-left">Sub-Total :</td>
+                                    <td class="text-right">$300.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">VAT (20%) :</td>
+                                    <td class="text-right">$60.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Total :</td>
+                                    <td class="text-right primary-color">$360.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="cart_btn">
+                        <a href="cart.html" class="gi-btn-1">View Cart</a>
+                        <!-- <a href="checkout.html" class="gi-btn-2">Checkout</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Cart sidebar End -->
+
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <!-- Toast notifications will appear here -->
+        </div>
+
+        <!-- User Section -->
+        <section class="gi-register padding-tb-40">
+            <div class="container-xl px-4 mt-4 user-profile">
+                <div class="section-title-2">
+                    <h2 class="gi-title">User Profile<span></span></h2>
+                    <p>Best place to buy and sell digital products.</p>
+                </div>
+                <!-- Account page navigation-->
+                <hr class="mt-0 mb-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- Profile picture card-->
+                        <div class="card mb-4 mb-xl-0 h-100 ">
+                            <div class="card-header">Profile Picture</div>
+                            <div class="card-body text-center ">
+                                <!-- Profile picture image-->
+                                <input type="file" id="profilePicture" accept="image/*">
+                                <br>
+                                <img id="shown-profilePicture"
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                    alt="Avatar" class="img-fluid rounded-circle border border-gray shadow"
+                                    style="width:190px;height:190px">
+                                <br>
+                                <br>
+                                <div class="small font-italic text-muted">JPG or PNG no larger than 5 MB</div>
+                                <label for="profilePicture" id="profile-custom-button" class="gi-btn-1 mt-3">Select
+                                    Image</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <!-- Account details card-->
+                        <div class="card mb-4 h-100 border border-gray">
+                            <div class="card-header">Account Details</div>
+                            <div class="card-body">
+                                <div class="modal-body">
+                                    <form>
+                                        <!-- Form Row-->
+                                        <div class="row gx-3 mb-3 account-details">
+                                            <!-- Name-->
+                                            <span class="col-md-6 mb-3 mb-md-0">
+                                                <label class="small mb-1 form-label fonttext"
+                                                    for="displayName">Name</label>
+                                                <input class="form-control h-75 fonttext" id="displayName" type="text"
+                                                    placeholder="Enter your full name" required>
+                                                <small id="nameError" class="text-danger"></small>
+                                            </span>
+
+                                            <!-- Phone Number -->
+                                            <span class="col-md-6">
+                                                <label class="small mb-1 fonttext" for="phone">Phone Number</label>
+                                                <input class="form-control h-75 fonttext" id="phone" type="tel"
+                                                    placeholder="Enter your phone number" required>
+                                                <small id="phoneError" class="text-danger"></small>
+                                            </span>
+                                        </div>
+
+                                        <!-- Form Row-->
+                                        <div class="row gx-3 mb-3 account-details">
+                                            <!-- Profile Picture Upload-->
+                                            <div class="col-md-6"></div>
+                                            <!-- Email -->
+                                            <div class="col-md-12">
+                                                <label class="gi small mb-1 fonttext" for="email">Email</label>
+                                                <input class="form-control h-75 fonttext" id="email" type="email"
+                                                    placeholder="Enter your email address" readonly>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer d-flex justify-content-between  ">
+                                    <button type="button" class="gi-btn-1 bg-success mt-5" id="saveProfileChangesBtn">
+                                        Save Changes
+                                    </button>
+                                    <button href="#" class="gi-btn-1 bg-gray mt-5" data-bs-toggle="modal"
+                                        data-bs-target="#changePasswordModal" style="background:#4A412A;">Change
+                                        Password</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel"
+        data-bs-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog w-50 modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changePasswordModalLabel">
+                        Change Password
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="changePasswordForm">
+                        <!-- Current Password -->
+                        <div class="mb-3">
+                            <label for="currentPassword" class="form-label">Current Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control border-primary" id="currentPassword" />
+                                <button class="btn btn-outline-secondary" type="button" id="currentPasswordToggle">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- New Password -->
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label">New Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control border-primary" id="newPassword"
+                                    oncopy="return false;" />
+                                <button class="btn btn-outline-secondary" type="button" id="newPasswordToggle">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                            <small id="passwordError" class="text-danger"></small>
+                        </div>
+
+                        <!-- Confirm New Password -->
+                        <div class="mb-3">
+                            <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
+                            <input type="password" class="form-control border-primary" id="confirmNewPassword"
+                                oncopy="return false;" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-primary" id="changePasswordBtn">
+                        Change Password
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div class="modal fade" id="logoutConfirmationModal" tabindex="-1" aria-labelledby="logoutConfirmationModalLabel"
+        data-bs-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered w-50">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="logoutConfirmationModalLabel">
+                        Confirm Logout
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">Are you sure you want to logout?</div>
+                <div class="modal-footer">
+                    <!-- Cancel button to close the modal -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <!-- Logout button to trigger the logout -->
+                    <button type="button" class="btn btn-primary" id="confirmLogoutBtn">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Body -->
+    <div class="toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true" id="toast-bg">
+        <div class="notify d-flex justify-content-between">
+            <span class="compare-note d-inline"></span>
+            <button type="button" class="btn-close d-inline" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <!-- Back to top  -->
+    <a class="gi-back-to-top"></a>
+
+    <!-- Plugins JS -->
+    <script src="assets/js/plugins/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/plugins/popper.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/plugins/bootstrap-select.min.js"></script>
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/fontawesome.js"></script>
+    <script src="assets/js/plugins/owl.carousel.min.js"></script>
+    <script src="assets/js/plugins/infiniteslidev2.js"></script>
+    <script src="assets/js/plugins/jquery.zoom.min.js"></script>
+    <script src="assets/js/plugins/slick.min.js"></script>
+    <script src="assets/js/plugins/nouislider.js"></script>
+    <script src="assets/js/plugins/wow.js"></script>
+
+    <!-- Main Js -->
+    <script src="assets/js/main.js"></script>
+    <script type="module" src="./user.js"></script>
+</body>
+
+</html>

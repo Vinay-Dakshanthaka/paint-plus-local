@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint Plus</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="Multipurpose eCommerce HTML Template">
+    <meta name="author" content="Aireddy DineshReddy">
+    <!-- site Favicon -->
+    <link rel="icon" href="assets/img/favicon/logo.png" sizes="32x32">
+
+    <!-- css Icon Font -->
+    <link rel="stylesheet" href="assets/css/vendor/gicons.css">
+
+    <!-- css All Plugins Files -->
+    <link rel="stylesheet" href="assets/css/plugins/animate.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/slick.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/nouislider.css">
+
+    <!-- Main Style -->
+    <link rel="stylesheet" id="main_style" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/vendor/custom.css">
+
+    <!-- Styles -->
+    <style>
+        table {
+            /* margin: 20px auto; */
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .custom-label {
+            margin-bottom: 0;
+        }
+
+        .custom-input {
+            margin-bottom: 0;
+        }
+
+        .overlay {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(81, 79, 79, 0.5);
+            backdrop-filter: blur(3px);
+            z-index: 5;
+        }
+
+        .close {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #updateProductForm input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+
+        #productImagePreview {
+            margin-top: 10px;
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        /* Style for the update button */
+        #updateButton {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #updateButton:hover {
+            background-color: #2980b9;
+        }
+
+        .color-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .color-container .color-box {
+            border-radius: 10px;
+            background-color: transparent;
+            outline: 1px solid black;
+        }
+
+        .color-container br {
+            margin: 5px 0;
+        }
+
+        .products-container {
+            overflow: scroll;
+            max-width: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loader -->
+    <div id="gi-overlay">
+        <div class="loader"></div>
+    </div>
+
+    <div id="main" class=" position-relative">
+        <!-- Header start  -->
+        <header class="gi-header">
+            <!-- Header Top Start -->
+            <div class="header-top">
+                <div class="container">
+                    <div class="row align-itegi-center">
+                        <!-- Header Top social Start -->
+                        <div class="col text-left header-top-left d-lg-block">
+                            <div class="header-top-social">
+                                <ul class="mb-0">
+                                    <li class="list-inline-item">
+                                        <a href="javascript:void(0)"><i class="fi fi-rr-phone-call"></i></a>+91 987 654
+                                        3210
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="javascript:void(0)"><i class="fi fi-brands-whatsapp"></i></a>+91 987
+                                        654
+                                        3210
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Header Top social End -->
+                        <!-- Header Top Message Start -->
+                        <div class="col text-center header-top-center">
+                            <div class="header-top-message">
+                                World's Fastest Online Shopping Destination
+                            </div>
+                        </div>
+                        <!-- Header Top Message End -->
+                        <!-- Header Top Language Currency -->
+                        <div class="col header-top-right d-none d-lg-block">
+                            <div class="header-top-right-inner d-flex justify-content-end">
+                                <a class="gi-help" href="faq.html">Help?</a>
+                                <a class="gi-help" href="track-order.html">Track Order?</a>
+                            </div>
+                        </div>
+                        <!-- Header Top responsive Action -->
+                        <div class="col header-top-res d-lg-none">
+                            <div class="gi-header-bottons">
+                                <div class="right-icons">
+                                    <!-- Header User Start -->
+                                    <a href="login.html" class="gi-header-btn gi-header-user">
+                                        <div class="header-icon"><i class="fi-rr-user"></i></div>
+                                    </a>
+                                    <!-- Header User End -->
+                                    <!-- Header Cart Start -->
+                                    <a href="cart.html" class="gi-header-btn gi-cart-toggle">
+                                        <div class="header-icon"><i class="fi-rr-shopping-bag"></i>
+                                            <span class="main-label-note-new"></span>
+                                        </div>
+                                        <span class="gi-header-count gi-cart-count cart">3</span>
+                                    </a>
+                                    <!-- Header Cart End -->
+                                    <!-- Header menu Start -->
+                                    <a href="javascript:void(0)" class="gi-header-btn gi-site-menu-icon d-lg-none">
+                                        <i class="fi-rr-menu-burger"></i>
+                                    </a>
+                                    <!-- Header menu End -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Header Top responsive Action -->
+                    </div>
+                </div>
+            </div>
+            <!-- Header Top  End -->
+
+            <!-- Header Bottom  Start -->
+            <div class="gi-header-bottom d-lg-block">
+                <div class="container position-relative">
+                    <div class="row">
+                        <div class="gi-flex">
+                            <!-- Header Logo Start -->
+                            <div class="align-self-center gi-header-logo">
+                                <div class="header-logo">
+                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt="Site Logo" class="logo"></a>
+                                </div>
+                            </div>
+                            <!-- Header Logo End -->
+                            <!-- Header Search Start -->
+                            <!-- <div class="align-self-center gi-header-search">
+                                <div class="header-search">
+                                    <form class="gi-search-group-form" action="#">
+                                        <input class="form-control gi-search-bar" placeholder="Search Products..."
+                                            type="text">
+                                        <button class="search_submit" type="submit"><i
+                                                class="fi-rr-search"></i></button>
+                                    </form>
+                                </div>
+                            </div> -->
+                            <!-- Header Search End -->
+                            <!-- Header Button Start -->
+                            <div class="gi-header-action align-self-center">
+                                <div class="gi-header-bottons">
+                                    <!-- Header User Start -->
+                                    <div class="gi-acc-drop">
+                                        <a href="javascript:void(0)"
+                                            class="gi-header-btn gi-header-user dropdown-toggle gi-user-toggle"
+                                            title="Account">
+                                            <!-- <div class="header-icon">
+                                                <i class="fi-rr-user"></i>
+                                            </div> -->
+                                            <div class="header-icon loggedOut">
+                                                <i class="fi-rr-user"></i>&nbsp;&nbsp;
+                                                <span class="nav-link custom-brand active">Login/Register</span>
+                                            </div>
+                                            <div class="gi-btn-desc">
+                                                <!-- <span class="gi-btn-title">Account</span> -->
+                                                <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                                    <span class="header-icon">
+                                                        <span class="">
+                                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                                                alt="profile" id="profile-picture"
+                                                                class="rounded-circle"
+                                                                style="height: 30px; width: 30px;">
+                                                        </span>&nbsp;
+                                                        <span class="badge text-bg-warning profile-name mt-1 h-100">
+                                                        </span>
+                                                    </span>
+                                                </li>
+                                                <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                                    <span class="header-icon">
+                                                        <span class="">
+                                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                                                alt="profile" id="profile-picture"
+                                                                class="rounded-circle"
+                                                                style="height: 30px; width: 30px;">
+                                                        </span>&nbsp;
+                                                        <span class="badge text-bg-warning profile-name mt-1 h-100">
+                                                        </span>
+                                                    </span>
+                                                </li>
+                                            </div>
+                                        </a>
+                                        <ul class="gi-dropdown-menu">
+                                            <li class="nav-item loggedOut">
+                                                <a class="nav-link custom-brand" href="register.html">Register</a>
+                                            </li>
+                                            <li class="nav-item loggedOut">
+                                                <a class="nav-link custom-brand active" href="login.html">Login</a>
+                                            </li>
+                                            <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                                <a class="nav-link custom-brand active" aria-current="page"
+                                                    href="user.html">Profile</a>
+                                            </li>
+                                            <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                                <a class="nav-link custom-brand" href="admin.html">Profile
+                                                </a>
+                                            </li>
+                                            <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                                <a class="nav-link custom-brand" href="product-upload.html">Upload
+                                                    Product
+                                                </a>
+                                            </li>
+                                            <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                                <a class="nav-link custom-brand" href="upload-video.html">Upload Video
+                                                </a>
+                                            </li>
+                                            <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                                <a class="nav-link custom-brand" href="orderlist.html">My Orders
+                                                </a>
+                                            </li>
+                                            <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                                <a class="nav-link custom-brand active" aria-current="page"
+                                                    href="addresses.html">Addresses</a>
+                                            </li>
+                                            <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                                <a class="nav-link custom-brand" href="admin_dashboard.html">Admin
+                                                    Dashboard
+                                                </a>
+                                            </li>
+                                            <li class="nav-item logout-btn d-none">
+                                                <!-- Logout button with data-toggle and data-target attributes -->
+                                                <a class="nav-link custom-brand " data-bs-toggle="modal" type="button"
+                                                    data-bs-target="#logoutConfirmationModal">
+                                                    Logout
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- Header User End -->
+                                    <!-- Header Cart Start -->
+                                    <a href="cart.html" class="gi-header-btn gi-cart-toggle" title="Cart">
+                                        <div class="header-icon">
+                                            <i class="fi-rr-shopping-bag"></i>
+                                            <span class="main-label-note-new"></span>
+                                        </div>
+                                        <div class="gi-btn-desc">
+                                            <span class="gi-btn-title">Cart</span>
+                                            <span class="gi-btn-stitle"><b class="gi-cart-count cart">3</b>-items</span>
+                                        </div>
+                                    </a>
+                                    <!-- Header Cart End -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header Button End -->
+
+            <!-- Header menu -->
+            <div class="gi-header-cat d-none d-lg-block">
+                <div class="container position-relative">
+                    <div class="gi-nav-bar">
+                        <!-- Category Toggle -->
+                        <div class="gi-category-icon-block">
+                            <!-- <div class="gi-category-menu">
+                                <div class="gi-category-toggle">
+                                    <i class="fi fi-rr-apps"></i>
+                                    <span class="text">All Categories</span>
+                                    <i class="fi-rr-angle-small-down d-1199 gi-angle" aria-hidden="true"></i>
+                                </div>
+                            </div> -->
+                            <div class="gi-cat-dropdown">
+                                <div class="gi-cat-block">
+                                    <div class="gi-cat-tab d-flex flex-wrap justify-content-between ps-2 gap-2                         
+                                nav-category">
+                                        <!-- <div class="gi-tab-list nav flex-column nav-pills me-3" id="v-pills-tab"
+                                            role="tablist" aria-orientation="vertical">
+                                            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
+                                                data-bs-target="#v-pills-home" type="button" role="tab"
+                                                aria-controls="v-pills-home" aria-selected="true">Wall Paints</button>
+                                            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                                data-bs-target="#v-pills-profile" type="button" role="tab"
+                                                aria-controls="v-pills-profile" aria-selected="false">Floor
+                                                Paints</button>
+                                            <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
+                                                data-bs-target="#v-pills-messages" type="button" role="tab"
+                                                aria-controls="v-pills-messages" aria-selected="false"></i>Wood
+                                                Protection</button>
+                                            <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
+                                                data-bs-target="#v-pills-settings" type="button" role="tab"
+                                                aria-controls="v-pills-settings" aria-selected="false"></i>Epoxy
+                                            </button>
+                                        </div>
+                                        <div class="tab-content" id="v-pills-tabContent">
+                                            <div class="gi-tab-list nav flex-column nav-pills me-3" id="v-pills-tab"
+                                                role="tablist" aria-orientation="vertical">
+                                                <button class="nav-link active" id="v-pills-home-tab"
+                                                    data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button"
+                                                    role="tab" aria-controls="v-pills-home" aria-selected="true">Wall
+                                                    Paints</button>
+                                                <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                                    data-bs-target="#v-pills-profile" type="button" role="tab"
+                                                    aria-controls="v-pills-profile" aria-selected="false">Floor
+                                                    Paints</button>
+                                                <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
+                                                    data-bs-target="#v-pills-messages" type="button" role="tab"
+                                                    aria-controls="v-pills-messages" aria-selected="false"></i>Wood
+                                                    Protection</button>
+                                                <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
+                                                    data-bs-target="#v-pills-settings" type="button" role="tab"
+                                                    aria-controls="v-pills-settings" aria-selected="false"></i>Epoxy
+                                                </button>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main Menu Start -->
+                        <div id="gi-main-menu-desk" class="d-none d-lg-block sticky-nav">
+                            <div class="nav-desk">
+                                <div class="row">
+                                    <div class="col-md-12 align-self-center">
+                                        <div class="gi-main-menu">
+                                            <ul>
+                                                <li class="non-drop">
+                                                    <a href="index.html">Home</a>
+                                                </li>
+                                                </li>
+                                                <li class="non-drop">
+                                                    <a href="products.html">Products</a>
+                                                </li>
+                                                <li class="dropdown drop-list">
+                                                    <a href="javascript:void(0)" class="dropdown-arrow">Others<i
+                                                            class="fi-rr-angle-small-right"></i></a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="about-us.html">About Us</a></li>
+                                                        <li><a href="contact-us.html">Contact Us</a></li>
+                                                        <li><a href="cart.html">Cart</a></li>
+                                                        <!-- <li><a href="checkout.html">Checkout</a></li> -->
+                                                        <li><a href="faq.html">FAQ</a></li>
+                                                        <!-- <li><a href="login.html">Login</a></li>
+                                                        <li><a href="register.html">Register</a></li> -->
+                                                        <!-- <li><a href="track-order.html">Track Order</a></li> -->
+                                                        <li><a href="terms-condition.html">Terms Condition</a></li>
+                                                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                                    </ul>
+                                                </li>
+                                                <!-- <li class="non-drop"><a href="shop-banner-left-sidebar-col-3.html">
+                                                        <i class="fi-rr-badge-percent"></i>Offers</a>
+                                                </li> -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Main Menu End -->
+                    </div>
+                </div>
+                <!-- Header menu End -->
+
+                <!-- Mobile Menu sidebar Start -->
+                <div class="gi-mobile-menu-overlay"></div>
+                <div id="gi-mobile-menu" class="gi-mobile-menu">
+                    <div class="gi-menu-title">
+                        <span class="menu_title">My Menu</span>
+                        <button class="gi-close-menu">×</button>
+                    </div>
+                    <div class="gi-menu-inner">
+                        <div class="gi-menu-content">
+                            <ul>
+                                <li class="non-drop">
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li><a href="javascript:void(0)">Categories</a>
+                                <ul class="sub-menu mobile-nav-category">
+                                    <li>
+                                        <a href="javascript:void(0)">Interior</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">Exterior</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">Wall Paints</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">Floor Paints</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                            <li><a href="products.html">Wall Paints</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                                <li class="non-drop">
+                                    <a href="products.html">Products</a>
+                                </li>
+                                <li><a href="javascript:void(0)">Others</a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item loggedOut">
+                                            <a class="nav-link custom-brand" href="register.html">Register</a>
+                                        </li>
+                                        <li class="nav-item loggedOut">
+                                            <a class="nav-link custom-brand active" href="login.html">Login</a>
+                                        </li>
+                                        <li><a href="about-us.html">About Us</a></li>
+                                        <li><a href="contact-us.html">Contact Us</a></li>
+                                        <li><a href="cart.html">Cart</a></li>
+                                        <!-- <li><a href="checkout.html">Checkout</a></li> -->
+                                        <li><a href="faq.html">FAQ</a></li>
+                                        <!-- <li><a href="login.html">Login</a></li>
+                                    <li><a href="register.html">Register</a></li> -->
+                                        <li><a href="track-order.html">Track Order</a></li>
+                                        <li><a href="terms-condition.html">Terms Condition</a></li>
+                                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                        <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                            <a class="nav-link custom-brand" aria-current="page"
+                                                href="user.html">Profile</a>
+                                        </li>
+                                        <!-- <li class="nav-item d-none loggedIn" id="agentAppbar">
+                                        <a class="nav-link custom-brand" href="agent.html">Profile
+                                        </a>
+                                    </li> -->
+                                        <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                            <a class="nav-link custom-brand" href="admin.html">Profile
+                                            </a>
+                                        </li>
+                                        <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                            <a class="nav-link custom-brand" href="product-upload.html">Upload Product
+                                            </a>
+                                        </li>
+                                        <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                            <a class="nav-link custom-brand" href="upload-video.html">Upload Video
+                                            </a>
+                                        </li>
+                                        <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                            <a class="nav-link custom-brand" href="orderlist.html">My Orders
+                                            </a>
+                                        </li>
+                                        <li class="nav-item d-none loggedIn" id="customerAppbar">
+                                            <a class="nav-link custom-brand" aria-current="page"
+                                                href="addresses.html">Addresses</a>
+                                        </li>
+                                        <!-- <li class="nav-item d-none loggedIn" id="agentAppbar">
+                                        <a class="nav-link custom-brand" href="agent_dashboard.html">Agent Dashboard
+                                        </a>
+                                    </li> -->
+                                        <li class="nav-item d-none loggedIn" id="adminAppbar">
+                                            <a class="nav-link custom-brand" href="admin_dashboard.html">Admin Dashboard
+                                            </a>
+                                        </li>
+                                        <li class="nav-item logout-btn d-none">
+                                            <!-- Logout button with data-toggle and data-target attributes -->
+                                            <a class="nav-link custom-brand" data-bs-toggle="modal" type="button"
+                                                data-bs-target="#logoutConfirmationModal">
+                                                Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header-res-lan-curr">
+                            <!-- Social Start -->
+                            <div class="header-res-social">
+                                <div class="header-top-social">
+                                    <ul class="mb-0">
+                                        <li class="list-inline-item"><a href="#"><i class="gicon gi-facebook"></i></a>
+                                        </li>
+                                        <li class="list-inline-item"><a href="#"><i class="gicon gi-twitter"></i></a>
+                                        </li>
+                                        <li class="list-inline-item"><a href="#"><i class="gicon gi-instagram"></i></a>
+                                        </li>
+                                        <li class="list-inline-item"><a href="#"><i class="gicon gi-linkedin"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Social End -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Menu sidebar End -->
+        </header>
+        <!-- Header End -->
+
+        <!-- Cart sidebar Start -->
+        <div class="gi-side-cart-overlay"></div>
+        <div id="gi-side-cart" class="gi-side-cart">
+            <div class="gi-cart-inner">
+                <div class="gi-cart-top">
+                    <div class="gi-cart-title">
+                        <span class="cart_title">My Cart</span>
+                        <a href="javascript:void(0)" class="gi-cart-close">
+                            <i class="fi-rr-cross-small"></i>
+                        </a>
+                    </div>
+                    <ul class="gi-cart-pro-items">
+                        <li>
+                            <a href="products.html" class="gi-pro-img"><img
+                                    src="assets/img/product-images/interior_paint6.jpg" alt="product"></a>
+                            <div class="gi-pro-content">
+                                <a href="products.html" class="cart-pro-title">Wall Paint</a>
+                                <span class="cart-price"><span>$25.00</span> x 1 ltr</span>
+                                <div class="qty-plus-minus">
+                                    <input class="qty-input" type="text" name="gi-qtybtn" value="1">
+                                </div>
+                                <a href="javascript:void(0)" class="remove">×</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="products.html" class="gi-pro-img"><img
+                                    src="assets/img/product-images/interior_paint6.jpg" alt="product"></a>
+                            <div class="gi-pro-content">
+                                <a href="products.html" class="cart-pro-title">Wall Paint</a>
+                                <span class="cart-price"><span>$25.00</span> x 1 ltr</span>
+                                <div class="qty-plus-minus">
+                                    <input class="qty-input" type="text" name="gi-qtybtn" value="1">
+                                </div>
+                                <a href="javascript:void(0)" class="remove">×</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="products.html" class="gi-pro-img"><img
+                                    src="assets/img/product-images/interior_paint6.jpg" alt="product"></a>
+                            <div class="gi-pro-content">
+                                <a href="products.html" class="cart-pro-title">Wall Paint</a>
+                                <span class="cart-price"><span>$25.00</span> x 1 ltr</span>
+                                <div class="qty-plus-minus">
+                                    <input class="qty-input" type="text" name="gi-qtybtn" value="1">
+                                </div>
+                                <a href="javascript:void(0)" class="remove">×</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="gi-cart-bottom">
+                    <div class="cart-sub-total">
+                        <table class="table cart-table">
+                            <tbody>
+                                <tr>
+                                    <td class="text-left">Sub-Total :</td>
+                                    <td class="text-right">$300.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">VAT (20%) :</td>
+                                    <td class="text-right">$60.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Total :</td>
+                                    <td class="text-right primary-color">$360.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="cart_btn">
+                        <a href="cart.html" class="gi-btn-1">View Cart</a>
+                        <!-- <a href="checkout.html" class="gi-btn-2">Checkout</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Cart sidebar End -->
+
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <!-- Toast notifications will appear here -->
+        </div>
+
+        <div class="container products-container px-4 mt-4">
+            <h2 class="text-center">Welcome to Product Management</h2>
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <!-- <th>Product Id</th> -->
+                        <th>Product Manufacturer's Name</th>
+                        <th>Product Category</th>
+                        <th>Product Name</th>
+                        <!-- <th>Product Color</th> -->
+                        <!-- <th>Product Color Shade</th> -->
+                        <!-- <th>Product Size</th> -->
+                        <th>Product Price</th>
+                        <!-- <th>Product Quantity</th> -->
+                        <th>Product Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add an Update Product Modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            data-bs-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog w-50">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Product</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            id="modal-close-cross"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="updateProductForm">
+                            <!-- Manufacturer Section -->
+                            <div class="mb-3">
+                                <label for="manufacturerName" class="mb-2">Select Manufacturer:</label>
+                                <span class="fw-bold" id="manufacturerName"></span>
+                            </div>
+                            <!-- Category Section -->
+                            <div class="mb-3">
+                                <label for="categoryDropdown" class="mb-2">Select Category:</label>
+                                <select class="form-control border-primary" id="categoryDropdown">
+                                   
+                                    <option value="">Please select</option>
+                                </select>
+                            </div>
+                            <div class="">
+                                <label for="productName" class="form-label">Product Name:</label>
+                                <input type="text" class="form-control border-primary" id="productName"
+                                    name="productName" placeholder="Product Name">
+                            </div>
+                            <!-- <div class="container" style="width: fit-content; white-space: nowrap;">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label for="productColor" class="form-label custom-label pe-5 mt-2">Product
+                                            Color:</label>
+                                    </div>
+                                    <div class="col-sm-6 mx-auto mt-auto me-5">
+                                        <div id="colorInputsContainer">
+                                          
+                                        </div>
+                                        <span id="addColorButton" class="btn btn-primary">Add Color</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 sm-3 mx-auto">
+                                    <div id="colorContainer"></div>
+                                </div>
+                            </div><br> -->
+                            <!-- Color Shades Section-->
+                            <!-- <div class="mb-3">
+                                <label for="colorShadeDropdown" class="mb-2">Select Color Shade:</label>
+                                <select class="form-control border-primary" id="colorShadeDropdown">
+                              
+                                    <option value="">Please select</option>
+                                </select>
+                            </div> -->
+                            <!-- <div class="">
+                                <label for="productSize" class="form-label">Product Size:</label>
+                                <input type="number" class="form-control border-primary" id="productSize"
+                                    name="productSize" placeholder="Product Size"><br>
+                            </div> -->
+                            <!-- <div class="">
+                                <label for="productQuantity" class="form-label">Product Quantity:</label>
+                                <input type="number" class="form-control border-primary" id="productQuantity"
+                                    name="productQuantity" placeholder="Product Quantity"><br>
+                            </div> -->
+                            <div class="">
+                                <label for="productPrice" class="form-label">Product Price:</label>
+                                <input type="number" class="form-control border-primary" id="productPrice"
+                                    name="productPrice" placeholder="Product Price"><br>
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <label for="productImage" class="form-label">Product Image:</label>
+                                    <input type="file" class="form-control border-primary" id="productImage"
+                                        accept="image/*" style="height: auto;">
+                                </div>
+                                <div class="col-4 d-flex justify-content-center">
+                                    <img id="productImagePreview" width="100" height="auto" />
+                                    <img id="previousProductImagePreview" width="100" height="auto"
+                                        style="display: none;" />
+                                </div>
+                            </div>
+
+                            <!-- <div class="mb-3">
+                                <div class="form-group" id="featuredProductDescriptionSection" style="display: none;">
+                                    <label for="featuredProductDescription">Featured Product Description:</label>
+                                    <textarea class="form-control border-primary" id="featuredProductDescription"
+                                        name="featuredProductDescription"
+                                        placeholder="Please enter the description related this product"
+                                        rows="6"></textarea>
+                                </div>
+
+                            </div> -->
+                            <div class="mb-3">
+                                <!--Product Description Section (Initially Hidden) -->
+                                <div class="form-group" id="productDescriptionSection">
+                                    <label for="P=productDescription">Product Description:</label>
+                                    <textarea class="form-control" id="product-description" name="productDescription"
+                                        placeholder="Please enter the description related this product"
+                                        rows="6"></textarea>
+                                </div>
+                            </div><br>
+
+                            <!-- product Details -->
+                            <div class="mb-3">
+                                <div class="form-group" id="ProductDetailsSection">
+                                    <label for="ProductDetails">Product Details:</label>
+                                    <textarea class="form-control" id="product-details" name="ProductDetails"
+                                        placeholder="Please enter the details related this product"
+                                        rows="10"></textarea>
+                                </div>
+                            </div><br>
+
+                            <!-- product specification -->
+                            <div class="mb-3">
+                                <div class="form-group" id="ProductSpecification">
+                                    <label for="ProductSpecification">Product Specifications:</label>
+                                    <textarea class="form-control" id="product-specifications"
+                                        name="ProductSpecification"
+                                        placeholder="Please enter the specifications related this product"
+                                        rows="10"></textarea>
+                                </div>
+                            </div><br>
+
+                            <!-- New Product Arrival Section -->
+                            <!-- <div class="mb-3">
+                                <label for="new-product-arrival">Please select this product as the new product
+                                    arrival:</label><br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="new-product-arrival-yes"
+                                        id="new-product-arrival-yes" value="yes">
+                                    <label class="form-check-label" for="new-product-arrival-yes">Yes</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="new-product-arrival-no"
+                                        id="new-product-arrival-no" value="no" checked>
+                                    <label class="form-check-label" for="new-product-arrival">No</label>
+                                </div>
+                            </div><br> -->
+                          
+                        </form><br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="modal-close">Close</button>
+                        <button type="button" class="btn btn-primary" id="updateButton">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout Confirmation Modal -->
+        <div class="modal fade" id="logoutConfirmationModal" tabindex="-1"
+            aria-labelledby="logoutConfirmationModalLabel" data-bs-backdrop="static" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered w-50">
+                <div class="modal-content" style="margin: auto; width: 100%;">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="logoutConfirmationModalLabel">
+                            Confirm Logout
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">Are you sure you want to logout?</div>
+                    <div class="modal-footer">
+                        <!-- Cancel button to close the modal -->
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <!-- Logout button to trigger the logout -->
+                        <button type="button" class="btn btn-primary" id="confirmLogoutBtn">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Body -->
+        <div class="toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true"
+            id="toast-bg">
+            <div class="notify d-flex justify-content-between">
+                <span class="compare-note d-inline"></span>
+                <button type="button" class="btn-close d-inline" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to top  -->
+    <a class="gi-back-to-top"></a>
+
+    <!-- Plugins JS -->
+    <script src="assets/js/plugins/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/plugins/popper.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/plugins/bootstrap-select.min.js"></script>
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/fontawesome.js"></script>
+    <script src="assets/js/plugins/owl.carousel.min.js"></script>
+    <script src="assets/js/plugins/infiniteslidev2.js"></script>
+    <script src="assets/js/plugins/jquery.zoom.min.js"></script>
+    <script src="assets/js/plugins/slick.min.js"></script>
+    <script src="assets/js/plugins/nouislider.js"></script>
+    <script src="assets/js/plugins/wow.js"></script>
+
+    <!-- Main Js -->
+    <script src="assets/js/main.js"></script>
+    <script src="./product-edit.js" type="module"></script>
+</body>
+
+</html>
